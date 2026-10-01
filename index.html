@@ -4,126 +4,1821 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Titel van de pagina</title>
+  <title>Vakcoördinatoren checklist</title>
 
   <style>
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 24px;
-      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 32px 16px;
+      color: #1b1918;
       background: #ffffff;
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.65;
+      font-family: Georgia, serif;
+    }
+    
+.summary-main {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.condition {
+  display: block;
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #78716c;
+  background: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 100;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
-    h1,
-    h2 {
-      line-height: 1.2;
+    .uva-bar {
+      height: 4px;
+      margin-bottom: 24px;
+      background: #bc0031;
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #1b1918;
+      font-size: 1.5rem;
+      letter-spacing: 0;
+      line-height: 1.25;
     }
 
-    h2 {
-      margin-top: 40px;
-      font-size: 1.4rem;
+    .intro-box {
+      margin-bottom: 40px;
+      padding: 18px 20px;
+      border-radius: 4px;
+      color: #57534e;
+      background: #fafafa;
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.65;
     }
 
-    .intro {
-      margin: 0 0 32px;
-      color: #444;
-      font-size: 1.15rem;
+    .section {
+      margin-top: 48px;
     }
 
-    .notice {
-      margin: 24px 0;
-      padding: 16px 20px;
-      border-left: 4px solid #1464a0;
-      background: #f1f7fb;
+    .section:first-of-type {
+      margin-top: 0;
+    }
+
+    .phase-heading {
+      margin-bottom: 6px;
+      color: #1b1918;
+      font-size: 1.28rem;
+      line-height: 1.3;
+    }
+
+    .phase-description {
+      max-width: 580px;
+      margin-bottom: 28px;
+      color: #78716c;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .category-heading {
+      margin: 30px 0 10px;
+      color: #57534e;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: lighter;
+      letter-spacing: 0;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .phase-heading + .category-heading {
+      margin-top: 0;
+    }
+
+    details {
+      margin-bottom: 5px;
+      border: 1px solid #e7e5e4;
+      border-left: 3px solid #d6d3d1;
+      background: #ffffff;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    details:hover {
+      border-color: #d6d3d1;
+      border-left-color: #bc0031;
+      background: #fdfafa;
+    }
+
+    details[open] {
+      border-color: #d6d3d1;
+      border-left-color: #bc0031;
+      background: #ffffff;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 5px 16px;
+      cursor: pointer;
+      color: #1b1918;
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      font-weight: bold;
+      line-height: 1.4;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      margin-left: auto;
+      color: #a8a29f;
+      content: "+";
+      font-size: 1.3rem;
+      font-weight: normal;
+      transition: color 0.15s;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details:hover summary::after,
+    details[open] summary::after {
+      color: #bc0031;
+    }
+
+    .summary-title {
+      flex: 0 1 auto;
+    }
+
+.timing {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: 1px;
+  padding: 3px 7px;
+  border-radius: 3px;
+  color: #57534e;
+  background: #f1f0ef;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-align: right;
+  text-transform: none;
+}
+details:hover .timing,
+details[open] .timing {
+  color: #7a001f;
+  background: #f8e7ec;
+}
+
+    .step-content {
+      padding: 4px 16px 18px;
+      color: #57534e;
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .action-details {
+      padding-left: 18px;
+      margin: 0;
+      list-style-type: square;
+    }
+
+    .action-details li {
+      padding-left: 3px;
+      margin-bottom: 14px;
+    }
+
+    .action-details li:last-child {
+      margin-bottom: 0;
+    }
+
+    .action-details li::marker {
+      color: #a8a29f;
+      font-size: 0.7em;
+    }
+
+    .action-details strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #292524;
+      font-weight: bold;
+    }
+
+    .action-details span {
+      display: block;
+      color: #57534e;
     }
 
     a {
-      color: #005ea8;
+      color: #8f0026;
+    }
+
+    a:hover {
+      color: #bc0031;
+    }
+
+    .uva-footer {
+      margin-top: 42px;
+      padding-top: 16px;
+      border-top: 1px solid #e7e5e4;
+      color: #a8a29f;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
       body {
         padding: 20px 16px;
-        font-size: 16px;
       }
 
       h1 {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
+      }
+
+      .phase-heading {
+        font-size: 1.15rem;
+      }
+
+      summary {
+        flex-wrap: wrap;
+        padding: 14px 16px;
+      }
+
+      .timing {
+        width: 100%;
+        text-align: left;
+      }
+
+      .step-content {
+        padding: 4px 16px 16px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>[Titel van de pagina]</h1>
+  <main class="container">
+    <div class="uva-bar"></div>
 
-    <p class="intro">
-      [Korte inleiding. Leg hier in twee à drie zinnen uit wat de lezer op
-      deze pagina vindt en voor wie de informatie bedoeld is.]
-    </p>
+    <h1>Vakcoördinatoren checklist</h1>
 
-    <div class="notice">
-      <strong>Let op:</strong>
-      [Plaats hier eventueel een belangrijke mededeling, voorwaarde of datum.]
+    <div class="intro-box">
+      Als vakcoördinator ben je verantwoordelijk voor de inhoud én de
+      organisatie van een vak. Deze checklist helpt je bij de praktische en
+      administratieve taken vóór, tijdens en na afloop van je vak.
     </div>
 
-    <h2>1. [Eerste onderwerp]</h2>
+    <section class="section">
+      <h2 class="phase-heading">Voorbereiding van je vak</h2>
 
-    <p>
-      [Plaats hier je tekst. Dit is voorbeeldtekst om te laten zien hoe een
-      gewone alinea eruitziet. Je kunt deze tekst volledig vervangen door je
-      eigen inhoud.]
-    </p>
+      <p class="phase-description">
+        Een aantal belangrijke voorbereidingen vindt al plaats in het academisch jaar vóórdat je vak wordt gegeven. Door deze taken op tijd uit te voeren, leg je de basis voor een goede voorbereiding van je vak.
+      </p>
 
-    <p>
-      [Een tweede alinea met aanvullende uitleg, achtergrondinformatie of een
-      praktische instructie.]
-    </p>
+      <h3 class="category-heading">Planning &amp; organisatie</h3>
 
-    <h2>2. [Tweede onderwerp]</h2>
+      <details>
+        <summary>
+          <span class="summary-title">Roosterwensen doorgeven</span>
+          <span class="timing">eind januari</span>
+        </summary>
 
-    <p>
-      [Leg hier uit wat de lezer moet weten of doen.]
-    </p>
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>Uiterlijk laatste week van januari voorafgaand aan het academisch jaar</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+              <span>
+                Roosterwensen moeten al ver voor je vak worden doorgegeven, zeker als ze zijn veranderd ten opzichte van het huidige studiejaar. Begin januari ontvang je hierover een e-mail van de onderwijscoördinator .
 
-    <ul>
-      <li>[Eerste actie of aandachtspunt]</li>
-      <li>[Tweede actie of aandachtspunt]</li>
-      <li>[Derde actie of aandachtspunt]</li>
-    </ul>
+              </span>
+            </li>
+            <li>
+              <strong>Waar</strong>
+              <span>[optioneel]</span>
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+              <span>
+                [optioneel]</a>
+              </span>
+            </li>
+            <li>
+              <strong>Contact</strong>
+              <span>
+                Neem met vragen contact op met onderwijscoördinator Fatih Gülveren: 
+                <a href="mailto:F.Gulveren@uva.nl">f.gulveren@uva.nl</a>.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </details>
 
-    <h2>3. [Veelgestelde vraag of toelichting]</h2>
+    <details>
+        <summary>
+          <span class="summary-title">Studiegidstekst actualiseren</span>
+          <span class="timing">eind april</span>
+        </summary>
 
-    <p>
-      <strong>[Vraag of tussenkop]</strong><br>
-      [Antwoord, uitleg of verdere toelichting.]
-    </p>
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
 
-    <p>
-      <strong>[Vraag of tussenkop]</strong><br>
-      [Antwoord, uitleg of verdere toelichting.]
-    </p>
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
 
-    <h2>Contact</h2>
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
 
-    <p>
-      [Heb je een vraag? Neem contact op met
-      <a href="mailto:voorbeeld@organisatie.nl">voorbeeld@organisatie.nl</a>.]
-    </p>
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+          <span class="summary-title">Conceptrooster controleren</span>
+          <span class="timing">eind april</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+          <span class="summary-title">Examinatoren doorgeven</span>
+          <span class="timing">eind april</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+          <span class="summary-title">Tentamenrooster raadplegen</span>
+          <span class="timing">juli (S1)</span><span class="timing">november (S2)</span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+          <span class="summary-title">Afspraken met gastdocenten maken</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+          <span class="summary-title">Webcollegebeleid raadplegen</span>
+          <span class="timing">juli</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      
+
+      <h3 class="category-heading">Studiemateriaal &amp; Canvas</h3>
+
+      <details>
+        <summary>
+          <span class="summary-title">Toegankelijkheid en auteursrecht controleren</span>
+          <span class="timing">voor start vak</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+    </section>
+
+    <section class="section">
+      <h2 class="phase-heading">Vlak voor de start van je vak</h2>
+
+      <p class="phase-description">
+        Naarmate de start van je vak dichterbij komt, verschuift de aandacht naar de praktische voorbereiding. Zorg dat studenten toegang hebben tot de juiste informatie en materialen, controleer de definitieve werkgroepindeling en rond de laatste organisatorische voorbereidingen af.
+      </p>
+
+      <h3 class="category-heading">Planning &amp; organisatie</h3>
+
+      <details>
+        <summary>
+          <span class="summary-title">Studentenaanmeldingen in Canvas controleren</span>
+          <span class="timing">na vakaanmelding</span>
+        </summary>
+
+<div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+    <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Studentenlijsten voor werkgroepen met docenten delen </span>
+          <span class="condition">Indien van toepassing</span>
+          </span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Werkgroeporganisatie afstemmen</span>
+          <span class="condition">Indien van toepassing</span>
+          </span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <h3 class="category-heading">Studiemateriaal &amp; Canvas</h3>
+
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Studiemateriaal voor studenten beschikbaar maken</span>
+          </span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Vak in Canvas inrichten en publiceren</span>
+          </span>
+          <span class="timing">2 weken voor start vak</span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Studiehandleiding publiceren</span>
+          </span>
+          <span class="timing">2 weken voor start vak</span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <h3 class="category-heading">Studenten & voorzieningen</h3>
+
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Toegekende onderwijsvoorzieningen in Canvas controleren</span>
+          
+          </span>
+<span class="timing">2 weken voor start vak</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <h3 class="category-heading">Toetsing & beoordeling</h3>
+
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Final Grades in Canvas inrichten</span>
+          
+          </span>
+<span class="timing">2 weken voor start vak</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+    </section>
+
+    <section class="section">
+      <h2 class="phase-heading">Tijdens je vak</h2>
+
+      <p class="phase-description">
+        Tijdens het onderwijs ben je niet alleen bezig met het verzorgen van colleges en werkgroepen.
+      </p>
+
+      <h3 class="category-heading">Planning & organisatie</h3>
+
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Werkgroepdocenten monitoren en begeleiden</span>
+                    <span class="condition">Indien van toepassing</span>
+
+          
+          </span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Inzet van surveillanten en spelregels raadplegen</span>
+         </span>
+<span class="timing">1 week voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Vakaanpassingen met de opleidingsdirecteur bespreken</span>
+                              <span class="condition">Indien van toepassing</span>
+
+         </span>
+<span class="timing">voor kerstreces</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+           <h3 class="category-heading">Studenten & voorzieningen</h3>
+
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Toegekende (maatwerk) tentamenvoorzieningen raadplegen </span>
+                              <span class="condition">Indien van toepassing</span>
+
+         </span>
+<span class="timing">2 weken voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <h3 class="category-heading">Toetsing & beoordeling</h3>
+
+<details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Voorbeeldtentamen met studenten delen</span>
+         </span>
+<span class="timing">bij start vak</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+
+<details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Toetsinzage inplannen in afstemming met onderwijscoördinator</span>
+         </span>
+<span class="timing">bij aanvang semester</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Afname (deel-/her-)tentamen voorbereiden</span>
+         </span>
+<span class="timing">1 week voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Antwoordmodellen maken of bijwerken </span>
+         </span>
+<span class="timing">1 week voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Peer review van het tentamen organiseren</span>
+         </span>
+<span class="timing">1 week voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">[placeholder nr 23] </span>
+         </span>
+<span class="timing">3 dagen voor tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Nakijkverantwoordelijkheden en deadlines verdelen en coördineren</span>
+         </span>
+<span class="timing">vlak na tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Antwoordmodel en beoordeling met nakijkers afstemmen</span>
+         </span>
+<span class="timing">vlak na tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Eindcijfers via Canvas indienen</span>
+         </span>
+<span class="timing">na nakijktermijn laatste opdracht</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      
+     
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">[placeholder nr 30]</span>
+         </span>
+<span class="timing">3 dagen voor inzage</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Toetsdossier afronden</span>
+         </span>
+<span class="timing">na ieder blok</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Papieren documenten archiveren</span>
+         </span>
+<span class="timing">na afloop tentamen</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Eindcijfers via Canvas indienen</span>
+         </span>
+<span class="timing">na nakijktermijn laatste opdracht</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Extra tentamen organiseren</span>
+          <span class="condition">Indien van toepassing</span>
+          </span>
+<span class="timing">juni/juli</span>
+
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+      <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">BSA-deadlines bewaken</span>
+         </span>
+<span class="timing">begin juni</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Cijfers vóór de bekostigingsdeadline doorzetten</span>
+         </span>
+<span class="timing">1 oktober</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+          <h3 class="category-heading">Vakevaluatie</h3>
+
+          <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Geef aan hoe je jouw vak wilt evalueren</span>
+         </span>
+<span class="timing">3 weken voor afname evaluatie</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+          <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Vakevaluatieformulier bekijken en feedback geven</span>
+         </span>
+<span class="timing">1 week voor afname evaluatie</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+          <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Studenten de vakevaluatie laten invullen</span>
+         </span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+          <details>
+        <summary>
+            <span class="summary-main">
+          <span class="summary-title">Evaluatieresultaten in Evalytics raadplegen en feedback geven</span>
+         </span>
+<span class="timing">na evaluatie</span>
+        </summary>
+
+        <div class="step-content">
+          <ul class="action-details">
+            <li>
+              <strong>Wanneer</strong>
+              <span>[placeholder]</span>
+            </li>
+            <li>
+              <strong>Wat</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Waar</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Meer informatie</strong>
+                <span>[placeholder]</span>
+
+            </li>
+            <li>
+              <strong>Contact</strong>
+                <span>[placeholder]</span>
+            </li>
+          </ul>
+        </div>
+     </details>
+     
+    </section>
+
+    <footer class="uva-footer">
+      Universiteit van Amsterdam • [Contact- of beheerinformatie]
+    </footer>
   </main>
 
   <script>
@@ -141,6 +1836,10 @@
 
     window.addEventListener("load", stuurHoogteDoor);
     window.addEventListener("resize", stuurHoogteDoor);
+
+    document.querySelectorAll("details").forEach(function (onderdeel) {
+      onderdeel.addEventListener("toggle", stuurHoogteDoor);
+    });
 
     new ResizeObserver(stuurHoogteDoor).observe(document.body);
   </script>
