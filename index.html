@@ -3,17 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mijn ingesloten pagina</title>
+
+  <title>Titel van de pagina</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      padding: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      color: #1a1a1a;
+      background: #ffffff;
       font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 1.4rem;
+    }
+
+    .intro {
+      margin: 0 0 32px;
+      color: #444;
+      font-size: 1.15rem;
+    }
+
+    .notice {
+      margin: 24px 0;
+      padding: 16px 20px;
+      border-left: 4px solid #1464a0;
+      background: #f1f7fb;
+    }
+
+    a {
+      color: #005ea8;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 16px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <h1>Hallo</h1>
-  <p>Deze pagina wordt gehost via GitHub Pages.</p>
+  <main>
+    <h1>[Titel van de pagina]</h1>
+
+    <p class="intro">
+      [Korte inleiding. Leg hier in twee à drie zinnen uit wat de lezer op
+      deze pagina vindt en voor wie de informatie bedoeld is.]
+    </p>
+
+    <div class="notice">
+      <strong>Let op:</strong>
+      [Plaats hier eventueel een belangrijke mededeling, voorwaarde of datum.]
+    </div>
+
+    <h2>1. [Eerste onderwerp]</h2>
+
+    <p>
+      [Plaats hier je tekst. Dit is voorbeeldtekst om te laten zien hoe een
+      gewone alinea eruitziet. Je kunt deze tekst volledig vervangen door je
+      eigen inhoud.]
+    </p>
+
+    <p>
+      [Een tweede alinea met aanvullende uitleg, achtergrondinformatie of een
+      praktische instructie.]
+    </p>
+
+    <h2>2. [Tweede onderwerp]</h2>
+
+    <p>
+      [Leg hier uit wat de lezer moet weten of doen.]
+    </p>
+
+    <ul>
+      <li>[Eerste actie of aandachtspunt]</li>
+      <li>[Tweede actie of aandachtspunt]</li>
+      <li>[Derde actie of aandachtspunt]</li>
+    </ul>
+
+    <h2>3. [Veelgestelde vraag of toelichting]</h2>
+
+    <p>
+      <strong>[Vraag of tussenkop]</strong><br>
+      [Antwoord, uitleg of verdere toelichting.]
+    </p>
+
+    <p>
+      <strong>[Vraag of tussenkop]</strong><br>
+      [Antwoord, uitleg of verdere toelichting.]
+    </p>
+
+    <h2>Contact</h2>
+
+    <p>
+      [Heb je een vraag? Neem contact op met
+      <a href="mailto:voorbeeld@organisatie.nl">voorbeeld@organisatie.nl</a>.]
+    </p>
+  </main>
+
+  <script>
+    function stuurHoogteDoor() {
+      const hoogte = document.documentElement.scrollHeight;
+
+      window.parent.postMessage(
+        {
+          type: "github-pages-iframe-hoogte",
+          hoogte: hoogte
+        },
+        "*"
+      );
+    }
+
+    window.addEventListener("load", stuurHoogteDoor);
+    window.addEventListener("resize", stuurHoogteDoor);
+
+    new ResizeObserver(stuurHoogteDoor).observe(document.body);
+  </script>
 </body>
 </html>
