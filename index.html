@@ -4,232 +4,210 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Checklist voor vakcoördinatoren</title>
-  <style>
-    :root {
-      --soft: #fdf6f7;
---accent: #b00035;
---optional: #B07700;
---optional-soft: #FFF0D6;
---line: #5A788F;
---ink: #1f2933;
-  --muted: #5c6873;
-  --accent-border: #5A788F;
-  --accent-border-hover: #003559;
-  --accent-border-optional: #C2C2C2;
-  --accent-border-optional-hover: #999999;
-
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #fff;
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    main {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 10px;
-    }
-
-    h1, h2, h3 { line-height: 1.2; }
-
-    h1 {
-      margin: 0 0 .75rem;
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-    }
-
-    .intro {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .phase {
-      margin-top: 3rem;
-    }
-
-    .phase > h2 {
-      margin: 0;
-      font-size: clamp(1.35rem, 3vw, 1.75rem);
-    }
-
-    .phase-intro {
-      margin: .6rem 0 1.5rem;
-      color: var(--muted);
-    }
-
-    .category {
-      margin: 1.75rem 0 0;
-    }
-
-    .category > h3 {
-      margin: 0 0 .75rem;
-      padding-bottom: .45rem;
-      border-bottom: 2px solid var(--accent);
-      font-size: 1.1rem;
-    }
-    
-.checklist-item {
-  margin: 5px 0;
-  border: 0;
-  background: transparent;
-  overflow: visible;
-}
-
-.checklist-item > summary {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4em 1.2em 0.5em 0.7em;
-  cursor: pointer;
-  list-style: none;
-  border: 1px solid var(--line);
-  background-color:grey;
-  border-left:7px solid var(--line);
-  background: #fff;
-}
-
-.checklist-item[open] > summary {
-  border-color: var(--accent-border-hover);
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.checklist-item > summary:hover {
-  border-color: var(--accent-border-hover);
-}
-
-.checklist-item > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Verberg het huidige plusje links */
-.checklist-item > summary::before {
-  display: none;
-}
-
-/* Toon het plusje rechts */
-.checklist-item > summary::after {
-  content: "+";
-  flex: 0 0 auto;
-  width: 1.45rem;
-  height: 1.45rem;
-  color: var(--accent);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.35rem;
-  text-align: center;
   
-}
+  <style>
+  :root {
+    --ink: #3b3b3b;
+    --muted: #5c6873;
+    --accent: #b00035;
+    --line: #a6a6a6;
+  }
 
-.checklist-item[open] > summary::after {
-  content: "–";
-}
+  * {
+    box-sizing: border-box;
+  }
 
-.optional-item > summary {
-  border-style: dashed dashed dashed solid;
-  border-color: var(--accent-border-optional);
-}
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
 
-.optional-item > summary:hover,
-.optional-item[open] > summary {
-  border-style: dashed dashed dashed solid;
-  border-color: var(--accent-border-optional-hover);
-}
+  main {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
 
-.optional-item[open] .step-content {
-  border-style: dashed ;
-  border-color: var(--accent-border-optional-hover);
-}
+  h2,
+  h3 {
+    line-height: 1.8;
+  }
 
-.optional-item > summary {
-  border-style: dashed dashed dashed solid;
-}
+  .intro {
+    margin: 0;
+    color: var(--muted);
+  }
 
-.summary-main {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-width: 0;
-}
+  .phase {
+    margin-top: 3rem;
+  }
 
-.summary-title {
-  font-weight: 650;
-}
+  .phase > h2 {
+    margin: 0;
+    color: var(--accent);
+    font-family: Georgia, serif;
+    font-size: 1.8em;
+    font-weight: 600;
+  }
 
-.summary-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.65rem;
-  font-size: 0.88rem;
-}
+  .phase-intro {
+    margin: 0.6rem 0 1.5rem;
+    color: var(--muted);
+  }
 
+  .category {
+    margin-top: 2.5em;
+  }
 
-.timing {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  border-radius: 999px;
-  padding: 0.12rem 0.5rem;
-  font-size: 0.73em;
-  text-transform:uppercase;
-}
+  .category > h3 {
+    margin: 0;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
 
+  .checklist-item {
+    border: 0;
+  }
 
-.timing::before {
+  .checklist-item > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6em 1em 0.6em 0.6em;
+    cursor: pointer;
+    list-style: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .checklist-item > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .checklist-item > summary:hover {
+    color: var(--accent);
+  }
+
+  .checklist-item[open] > summary {
+    border-bottom: 0;
+  }
+
+  .checklist-item > summary::after {
+    content: "+";
+    flex: 0 0 auto;
+    width: 1.45rem;
+    height: 1.45rem;
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.35rem;
+    text-align: center;
+  }
+
+  .checklist-item[open] > summary::after {
+    content: "–";
+  }
+
+  .summary-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .summary-title {
+    font-weight: 500;
+  }
+
+  .summary-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .timing,
+  .optional {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.73em;
+    text-transform: uppercase;
+  }
+
+  .optional::before {
+    content: "*";
+  }
+
+  .timing {
+    padding: 0;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .timing::before {
     content: "⏱";
     padding-right: 5px;
-}
+  }
 
-.timing {
-  background: var(--accent-soft);
-  color: #245563;
-  white-space: nowrap;
-  padding:0;
-}
+  .step-content {
+    padding: 1rem 1rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+  }
 
-.step-content {
-  border: 1px solid var(--accent-border);
-  border-top: 0;
-  padding: 1rem 1rem 1.1rem;
-  background: #fcfdfd;
-}
+  .action-details {
+    display: grid;
+    grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
+    gap: 0.65rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .action-details li {
+    display: contents;
+  }
+
+  .action-details strong {
+    font-size: 0.92rem;
+  }
+
+  .action-details span {
+    min-width: 0;
+  }
+
+  .placeholder {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 560px) {
+    main {
+      padding: 1.25rem 1rem 2rem;
+    }
+
+    .step-content {
+      padding-left: 1rem;
+    }
 
     .action-details {
-      display: grid;
-      grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
-      gap: .65rem 1rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
     }
 
-    .action-details li { display: contents; }
-    .action-details strong { font-size: .92rem; }
-    .action-details span { min-width: 0; }
-
-    .placeholder { color: var(--muted); font-style: italic; }
-
-    footer {
-      margin-top: 3rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .9rem;
+    .action-details strong:not(:first-child) {
+      margin-top: 0.7rem;
     }
-
-    @media (max-width: 560px) {
-      main { padding: 1.25rem 1rem 2rem; }
-      .step-content { padding-left: 1rem; }
-      .action-details { grid-template-columns: 1fr; gap: .15rem; }
-      .action-details strong:not(:first-child) { margin-top: .7rem; }
-    }
-  </style>
+  }
+</style>
+  
+  
 </head>
 <body>
   <main>
@@ -247,7 +225,7 @@
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Studiegidstekst actualiseren</span><span class="summary-meta"><span class="timing">Eind april</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Conceptrooster controleren</span><span class="summary-meta"><span class="timing">Eind april</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Examinatoren doorgeven</span><span class="summary-meta"><span class="timing">Eind april</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
-        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Tentamenrooster raadplegen</span><span class="summary-meta"><span class="timing">Juli (semester 1) / november (semester 2)</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Tentamenrooster raadplegen</span><span class="summary-meta"><span class="timing">Juli (semester 1)</span><span class="timing">November (semester 2)</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Afspraken met gastdocenten maken</span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Webcollegebeleid raadplegen</span><span class="summary-meta"><span class="timing">Juli</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
       </section>
@@ -264,8 +242,8 @@
 
       <section class="category" aria-labelledby="start-planning"><h3 id="start-planning">Planning &amp; organisatie</h3>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Studentenaanmeldingen in Canvas controleren</span><span class="summary-meta"><span class="timing">Na vakaanmelding</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
-        <details class="checklist-item optional-item"><summary><span class="summary-main"><span class="summary-title">▫️ Studentenlijsten voor werkgroepen met docenten delen</span><span class="summary-meta"></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
-        <details class="checklist-item  optional-item"><summary><span class="summary-main"><span class="summary-title">Werkgroeporganisatie afstemmen</span><span class="summary-meta"></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Studentenlijsten voor werkgroepen met docenten delen*</span><span class="summary-meta"><span class="optional">indien van toepassing</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Werkgroeporganisatie afstemmen*</span><span class="summary-meta"><span class="optional">indien van toepassing</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
       </section>
 
       <section class="category" aria-labelledby="start-canvas"><h3 id="start-canvas">Studiemateriaal &amp; Canvas</h3>
@@ -288,13 +266,13 @@
       <p class="phase-intro">Tijdens het onderwijs ben je niet alleen bezig met het verzorgen van colleges en werkgroepen.</p>
 
       <section class="category" aria-labelledby="tijdens-planning"><h3 id="tijdens-planning">Planning &amp; organisatie</h3>
-        <details class="checklist-item optional-item"><summary><span class="summary-main"><span class="summary-title">Werkgroepdocenten monitoren en begeleiden</span><span class="summary-meta"></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Werkgroepdocenten monitoren en begeleiden*</span><span class="summary-meta"><span class="optional">indien van toepassing</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Inzet van surveillanten en spelregels raadplegen</span><span class="summary-meta"><span class="timing">1 week voor het tentamen</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
-        <details class="checklist-item optional-item"><summary><span class="summary-main"><span class="summary-title">Vakaanpassingen met de opleidingsdirecteur bespreken</span><span class="summary-meta"><span class="timing">Voor het kerstreces</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Vakaanpassingen met de opleidingsdirecteur bespreken*</span><span class="summary-meta"><span class="optional">indien van toepassing</span><span class="timing">Voor het kerstreces</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
       </section>
 
       <section class="category" aria-labelledby="tijdens-studenten"><h3 id="tijdens-studenten">Studenten &amp; voorzieningen</h3>
-        <details class="checklist-item optional-item"><summary><span class="summary-main"><span class="summary-title">Toegekende maatwerk-tentamenvoorzieningen raadplegen</span><span class="summary-meta"><span class="timing">2 weken voor het tentamen</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Toegekende maatwerk-tentamenvoorzieningen raadplegen*</span><span class="summary-meta"><span class="optional">indien van toepassing</span><span class="timing">2 weken voor het tentamen</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
       </section>
 
       <section class="category" aria-labelledby="tijdens-toetsing"><h3 id="tijdens-toetsing">Toetsing &amp; beoordeling</h3>
@@ -310,7 +288,7 @@
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">[placeholder nr. 30]</span><span class="summary-meta"><span class="timing">3 dagen voor de inzage</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Toetsdossier afronden</span><span class="summary-meta"><span class="timing">Na ieder blok</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Papieren documenten archiveren</span><span class="summary-meta"><span class="timing">Na afloop van het tentamen</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
-        <details class="checklist-item optional-item"><summary><span class="summary-main"><span class="summary-title">Extra tentamen organiseren</span><span class="summary-meta"><span class="timing">Juni/juli</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
+        <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Extra tentamen organiseren*</span><span class="summary-meta"><span class="optional">indien van toepassing</span><span class="timing">Juni/juli</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">BSA-deadlines bewaken</span><span class="summary-meta"><span class="timing">Begin juni</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
         <details class="checklist-item"><summary><span class="summary-main"><span class="summary-title">Cijfers vóór de bekostigingsdeadline doorzetten</span><span class="summary-meta"><span class="timing">1 oktober</span></span></span></summary><div class="step-content"><ul class="action-details"><li><strong>Wanneer</strong><span class="placeholder">[placeholder]</span></li><li><strong>Wat</strong><span class="placeholder">[placeholder]</span></li><li><strong>Waar</strong><span class="placeholder">[placeholder]</span></li><li><strong>Meer informatie</strong><span class="placeholder">[placeholder]</span></li><li><strong>Contact</strong><span class="placeholder">[placeholder]</span></li></ul></div></details>
       </section>
@@ -323,7 +301,6 @@
       </section>
     </section>
 
-    <footer>Universiteit van Amsterdam · [Contact- of beheerinformatie]</footer>
   </main>
 </body>
 </html>
